@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sholly... 🩵</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Particle background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="heart-container" id="heartContainer"></div>
+
+    <!-- Floating action button -->
+    <div class="fab" onclick="surpriseMe()" title="Click for a surprise!">✨</div>
+
+    <div class="container">
+        <header>
+            <h1>I'm Shollyy...🩵🌻</h1>
+            <p class="subtitle">Ik mi khup mothi chuk keliye please let me make things right</p>
+        </header>
+
+        <div class="apology-box">
+            <p class="apology-text">
+                Ik when you needed me the most i wasnt emotionally available i was busy hen ten but like yk i was feeling so much worthless
+                after tu mala kahi sangat nhavtis it was like saglye hote but mi nahi aani mang aasa vatlel ki shivam doesnt matter anymmore 
+                yk like overshadowed by everyone else but I think that is not whats true so let pleasee raani maaf kar yaar mala I'll make 
+                things right didduu
+            </p>
+            <div class="decorative-line"></div>
+        </div>
+
+        <!-- Confession Notes -->
+        <div class="confession-notes">
+            <div class="note">
+                I was wrong as always please didduu sorry na g I'll make things right I promise
+            </div>
+            <div class="note">
+                You were deppressed and I missunderstood that and became thoughtless and careless that was just so wrong of me
+            </div>
+            <div class="note">
+                I promise I'll never take my eyes of you aanya you'll always be safe at me didduu I promisee
+            </div>
+        </div>
+
+        <div class="interactive-section">
+            <div class="button-group">
+                <button class="btn" onclick="revealMessage()">💌 Open My Heart</button>
+                <button class="btn" onclick="playSound()">🎵 For you Aanya</button>
+
+            </div>
+
+            <div class="message-reveal">
+                <div class="hidden-message" id="hiddenMessage">
+                    Even if I am at my lowest didduu I'll never show you my vulnerable side I will always give you every bit I have in myself
+                    but when I feel worthless and like not being enough I justt cruble apart and become clueless but still I never want to hurt 
+                    you kharach
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-section">
+            <h2>Our memories</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">That god manavna</div>
+                        <div class="timeline-text">Kaash aapan still tya 4th row chya 3rd bench vr basat aasto aani mi tuze gaal
+                            odhun manavla aasta
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Teh aaple hang outs</div>
+                        <div class="timeline-text">I miss you so much didduu yaarr kay mahiti parat kadhi bhetnar aapan I miss that feeling of peace
+                            and safety
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Teh aaple vid calls</div>
+                        <div class="timeline-text">you remember aasa vataych aapan akkha divas eka meka chya gharat aasto divas bhar 
+                            kay mahiti parat tasa kadhi vatnar yaarr
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Reasons Grid -->
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <span class="icon">🌻</span>
+                <h3>You're Irreplaceable</h3>
+                <p>Your care, your smile, your presence in my life I cant imagine my life without you in it</p>
+            </div>
+            <div class="reason-card">
+                <span class="icon">☀️</span>
+                <h3>You are my eternal Sunshine</h3>
+                <p>Before you came my life ws just dreadfull and dead it was you ray of hope without you I am ntg </p>
+            </div>
+            <div class="reason-card">
+                <span class="icon">🩵</span>
+                <h3>My dear Byakugan princess</h3>
+                <p>Youre smile heals something inside me diddu I always want to be the reason of your smile and I am very inscure about it the constand fear of loosing you is just vait</p>
+            </div>
+        </div>
+
+       
+        <!-- Forgiveness Meter -->
+        <div class="forgiveness-meter">
+            <h2>Forgiveness Meter</h2>
+            <p class="forgiveness-subtitle">How are you feeling right now?</p>
+            <div class="meter-container">
+                <div class="meter-fill" id="meterFill">0%</div>
+            </div>
+            <div class="meter-buttons">
+                <button class="meter-btn" onclick="updateMeter(25)">😐 Still upset</button>
+                <button class="meter-btn" onclick="updateMeter(50)">😌 Getting there</button>
+                <button class="meter-btn" onclick="updateMeter(75)">😊 Almost ready</button>
+                <button class="meter-btn" onclick="updateMeter(100)">😄 All forgiven!</button>
+            </div>
+        </div>
+
+        <!-- Final Message -->
+        <div class="final-message">
+            <h2>From the Bottom of My Heart</h2>
+            <div class="decorative-line"></div>
+            <p>
+                I hope tu saglya vachla ashil aani kaash maaf kela ashil mala I promise things will be better from here 
+            </p>
+            <p style="margin-top: 25px; font-size: 1.2rem; font-style: italic;">
+                "True friends don’t just walk beside you in sunshine,
+they hold your hand when the world feels heavy." 
+            </p>
+            <p style="margin-top: 25px; font-size: 1.3rem; font-weight: 600; color: var(--warm-brown);">
+                I am always here aanya just come rightfully you are never alone alwyas lovve youu...🩵❤️‍🩹🎀🌻
+                I'll be with you from dusk till dawn
+            </p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
