@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Little Apology 🩵</title>
+  <style>
+    :root {
+      --bg-1: #fff7f8;
+      --bg-2: #ffe8ee;
+      --ink: #2f2530;
+      --muted: #776873;
+      --accent: #e85d83;
+      --accent-dark: #c74368;
+      --card: rgba(255, 255, 255, 0.78);
+      --border: rgba(255, 255, 255, 0.9);
+      --shadow: 0 24px 70px rgba(119, 52, 74, 0.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,.95) 0 10%, transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(255, 183, 203, .55), transparent 28%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      overflow-x: hidden;
+    }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .bubble {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.55);
+      filter: blur(.2px);
+      animation: drift linear infinite;
+    }
+
+    .bubble:nth-child(1) { left: 8%;  animation-duration: 14s; top: 100%; transform: scale(.7); }
+    .bubble:nth-child(2) { left: 20%; animation-duration: 19s; top: 110%; transform: scale(1.1); }
+    .bubble:nth-child(3) { left: 45%; animation-duration: 16s; top: 105%; transform: scale(.5); }
+    .bubble:nth-child(4) { left: 67%; animation-duration: 21s; top: 115%; transform: scale(1.3); }
+    .bubble:nth-child(5) { left: 84%; animation-duration: 17s; top: 108%; transform: scale(.8); }
+
+    @keyframes drift {
+      from { transform: translateY(0) scale(1); opacity: 0; }
+      12% { opacity: .85; }
+      to { transform: translateY(-125vh) scale(1.15); opacity: 0; }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 14px;
+    }
+
+    .tiny {
+      border: 1px solid rgba(232,93,131,.18);
+      background: rgba(255,255,255,.55);
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: grid;
+      place-items: center;
+    }
+
+    .card {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: clamp(28px, 6vw, 64px);
+      text-align: center;
+      animation: enter .8s ease both;
+    }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(18px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .emoji {
+      font-size: clamp(54px, 10vw, 84px);
+      line-height: 1;
+      display: inline-block;
+      margin-bottom: 16px;
+      animation: float 3.8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 12px;
+      font-weight: 750;
+      color: var(--accent-dark);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(44px, 8vw, 82px);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+
+    .lead {
+      max-width: 670px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2.4vw, 20px);
+      line-height: 1.7;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: 0;
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 750;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .primary {
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow: 0 12px 30px rgba(232,93,131,.25);
+    }
+
+    .primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(232,93,131,.32);
+    }
+
+    .secondary {
+      color: var(--ink);
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(64,38,49,.08);
+    }
+
+    .secondary:hover {
+      transform: translateY(-2px);
+      background: white;
+    }
+
+    .letter {
+      max-width: 700px;
+      margin: 28px auto 0;
+      text-align: left;
+      display: none;
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(232,93,131,.10);
+    }
+
+    .letter.show {
+      display: block;
+      animation: reveal .45s ease both;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .letter p {
+      margin: 0 0 14px;
+      color: #4a3b45;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .letter p:last-child {
+      margin-bottom: 0;
+    }
+
+    .signature {
+      margin-top: 20px;
+      font-family: "Brush Script MT", "Segoe Script", cursive;
+      font-size: 27px;
+      color: var(--accent-dark);
+    }
+
+    .promise {
+      margin-top: 34px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(72,38,52,.08);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 18px;
+      color: rgba(92,69,80,.72);
+      font-size: 12px;
+    }
+
+    .burst {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: pop 1.6s cubic-bezier(.2,.85,.25,1) forwards;
+      will-change: transform, opacity;
+    }
+
+    @keyframes pop {
+      0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(.4) rotate(0deg);
+      }
+      12% { opacity: 1; }
+      100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(1.15) rotate(var(--r));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 18px, 960px);
+        padding-top: 10px;
+      }
+
+      .card {
+        border-radius: 22px;
+        padding: 28px 20px;
+      }
+
+      .letter {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+  </div>
+
+  <main class="wrap">
+    <div class="topbar">
+      <div class="tiny">made with a little courage 🩵</div>
+    </div>
+
+    <section class="hero">
+      <article class="card">
+        <div class="emoji" aria-hidden="true">🥺</div>
+        <div class="eyebrow">A message for my everything my bestie</div>
+
+        <h1>Duibuqi aanya.</h1>
+
+        <p class="lead">
+          I know I messed up today I let you down aanya for the first time you were waiting for my action 
+          and I failed you...
+        </p>
+
+        <div class="actions">
+          <button class="primary" id="openBtn">Open my message 💌</button>
+          <button class="secondary" id="heartBtn">Press for a hug 🤗</button>
+        </div>
+
+        <div class="letter" id="letter">
+          <p>
+            Hey,
+          </p>
+
+          <p>
+           I really am sorryy for what happened today no amount of apologies can fix what i fucked up ik that
+           but I am just trying to tell you that it was the first and last time that you are expecting something from me and I failed you 
+           in these typa things I promise I wont do this again
+          </p>
+
+          
+
+          <div class="signature">— Your dinkuu 🤗🩵</div>
+        </div>
+
+        <div class="promise">
+          No pressure. No guilt. Just a sincere apology.
+        </div>
+      </article>
+    </section>
+
+   
+  </main>
+
+  <div class="burst" id="burst" aria-hidden="true"></div>
+
+  <script>
+    const openBtn = document.getElementById("openBtn");
+    const heartBtn = document.getElementById("heartBtn");
+    const letter = document.getElementById("letter");
+    const burst = document.getElementById("burst");
+
+    openBtn.addEventListener("click", () => {
+      const isOpen = letter.classList.toggle("show");
+      openBtn.textContent = isOpen ? "Hide my message ✉️" : "Open my message 💌";
+
+      if (isOpen) {
+        letter.scrollIntoView({ behavior: "smooth", block: "center" });
+        burstHearts(12);
+      }
+    });
+
+    heartBtn.addEventListener("click", () => {
+      burstHearts(22);
+    });
+
+    function burstHearts(count) {
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement("span");
+        heart.className = "heart";
+        heart.textContent = Math.random() > 0.25 ? "🤗" : "🤗";
+
+        const startX = 50 + (Math.random() * 20 - 10);
+        const startY = 62 + (Math.random() * 12 - 6);
+
+        heart.style.left = startX + "vw";
+        heart.style.top = startY + "vh";
+        heart.style.setProperty("--x", (Math.random() * 260 - 130) + "px");
+        heart.style.setProperty("--y", (-160 - Math.random() * 280) + "px");
+        heart.style.setProperty("--r", (Math.random() * 100 - 50) + "deg");
+        heart.style.animationDelay = (Math.random() * 0.18) + "s";
+
+        burst.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 1900);
+      }
+    }
+  </script>
+</body>
+</html>
